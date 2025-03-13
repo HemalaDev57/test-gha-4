@@ -10,8 +10,8 @@ jobs:
   publish-artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: Get source code
-        uses: cloudbees-io/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Run My Custom Go Action
         uses: ./
         id: go-action
@@ -27,7 +27,7 @@ jobs:
   invalid-cloudbees-url:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         
       - name: Run My Custom Go Action
