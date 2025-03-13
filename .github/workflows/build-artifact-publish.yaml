@@ -41,7 +41,7 @@ jobs:
           type: "docker"
           cloudbees-url: "https://api.test.beescloud.com"
           cloudbees-pat: "cb_api_4fZoZeYJe5XwkTRUNzVrQRLytTweQJweqNJ+eAxCcmQCSat8ha4CoW4Yg4av8RAroPxxjg72fPvksNCNT4bk6Q=="
-          
+        
   invalid-pat:
     runs-on: ubuntu-latest
     steps:
