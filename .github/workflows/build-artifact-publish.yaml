@@ -3,7 +3,7 @@ name: GHA Action Build Artifact Publish Workflow
 on:
   push:
     branches:
-      - build-artifact
+      - master
   workflow_dispatch:
 
 jobs:
