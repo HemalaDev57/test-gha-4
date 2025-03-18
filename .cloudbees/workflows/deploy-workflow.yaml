@@ -11,7 +11,7 @@ jobs:
         uses: cloudbees-io/register-deployed-artifact@v1
         with:
           version: 1.0.0
-          url: docker.io/calculi-corp/gha-action/test-custom-action:latest
-          digest: sha256:45b23dee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2
+          url: docker.io/calculi-corp/gha-action/test-custom-action-01:latest
+          digest: sha256:11b23dee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2
           target-environment: Production
-          name: test-custom-action
+          name: test-custom-action-01
