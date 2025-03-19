@@ -1,0 +1,40 @@
+name: Invalid test
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  invalid-cloudbees-url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Run My Custom Go Action
+        uses: cloudbees-gha-cbp/register-build-artifact@main
+        id: go-action
+        with:
+          name: "test-artifact-gha-01"
+          version: 1.0.0
+          url: "docker.io/calculi-corp/gha-action/test-artifact-gha-01:latest"
+          digest: "sha256:a0a123ee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2"
+          type: "docker"
+          cloudbees-url: "https://api.test.beescloud.com"
+          cloudbees-pat: ${{ secret.CBP_PAT }}
+  invalid-pat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Run My Custom Go Action
+        uses: cloudbees-gha-cbp/register-build-artifact@main
+        id: go-action
+        with:
+          name: "test-custom-action"
+          version: 1.0.0
+          url: "docker.io/calculi-corp/gha-action/test-artifact-gha-01:latest"
+          digest: "sha256:a0a123ee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2"
+          type: "docker"
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"
+          cloudbees-pat: "test-pat"
