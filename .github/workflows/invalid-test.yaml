@@ -41,3 +41,20 @@ jobs:
           type: "docker"
           cloudbees-url: "https://api.saas-preprod.beescloud.com"
           cloudbees-pat: "test-pat"
+  without-org-access-pat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Run My Custom Go Action
+        uses: cloudbees-gha-cbp/register-build-artifact@main
+        id: go-action
+        with:
+          name: "test-custom-action"
+          version: 1.0.0
+          url: "docker.io/calculi-corp/gha-action/test-artifact-gha-01:latest"
+          digest: "sha256:a0a123ee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2"
+          type: "docker"
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"
+          cloudbees-pat: "cb_api_C3iW2K+RlUZGTRRmcqjj7+HE7SumjG6OLIPLjyJ7Xb22F/PwalYjvCeqrIbOv6aJHUTBiOgpqfu2E+LnUm+ocw=="
