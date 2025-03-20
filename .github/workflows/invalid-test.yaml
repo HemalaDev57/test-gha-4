@@ -23,7 +23,7 @@ jobs:
           digest: "sha256:a0a123ee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2"
           type: "docker"
           cloudbees-url: "https://api.test.beescloud.com"
-          cloudbees-pat: ${{ secret.CBP_PAT }}
+          cloudbees-pat: ${{ secrets.CBP_PAT }}
   invalid-pat:
     runs-on: ubuntu-latest
     steps:
