@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  publish-artifact:
+  build-and-publish-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
