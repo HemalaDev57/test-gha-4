@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout repository 
         uses: actions/checkout@v4
-      - name: Run My Custom Go Action 
+      - name: Run My Custom Go Action
         uses: cloudbees-gha-cbp/register-build-artifact@main
         id: go-action
         with:
