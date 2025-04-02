@@ -7,14 +7,16 @@ on:
   workflow_dispatch:
   
 jobs:
-  build-and-publish-artifact:
+  build:
     runs-on: ubuntu-latest 
     steps:
       - name: Checkout repository 
         uses: actions/checkout@v4
-      - name: Run My Custom Go Action
+      - name: Build step
+        run: echo "Running Build step..."
+      - name: Send artifact info to CBP
         uses: cloudbees-gha-cbp/register-build-artifact@main
-        id: go-action
+        id: send-artifact-info
         with:
           name: "test-artifact-gha-01"
           version: 1.0.0
