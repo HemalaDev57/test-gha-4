@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout repository 
         uses: actions/checkout@v4
-      - name: Build step 
+      - name: Build step
         run: echo "Running Build step..."
       - name: Send artifact info to CBP
         uses: cloudbees-gha-cbp/register-build-artifact@main
