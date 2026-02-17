@@ -5,21 +5,28 @@ on:
     branches:
       - master
   workflow_dispatch:
-  
+
+permissions: 
+  id-token: write
+  contents: read
 jobs:
   publish-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Run My Custom Go Action
-        uses: cloudbees-gha-cbp/register-build-artifact@main
-        id: go-action
+      - name: register-build-artifact
+        id: register_artifact
+        uses: cloudbees-io-gha/register-build-artifact@v3
         with:
-          name: "test-artifact-gha-01" 
+          name: h-test-artifact
+          url: "docker.io/hdevanan/h-test-artifact:latest"
           version: 1.0.0
-          url: "docker.io/calculi-corp/gha-action/test-artifact-gha-01:latest"
-          digest: "sha256:a0a123ee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2"
+          label: staging,qa,prod
           type: "docker"
-          cloudbees-url: "https://api.saas-preprod.beescloud.com"
-          cloudbees-pat: ${{ secrets.CBP_PAT }}
+          digest: "sha256:1234567890abcdef123456123456abcdefabcdef123456"
+      - name: Print artifact id
+        run: |
+          echo '${{ toJson(steps.register_artifact.outputs) }}'
+      # - name: register-deployed-artifact
+      #   uses: HemalaDev57/register-deployed-artifact-test@master
